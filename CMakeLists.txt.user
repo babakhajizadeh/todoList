@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 7.0.1, 2022-05-12T04:33:31. -->
+<!-- Written by QtCreator 7.0.1, 2022-05-12T20:51:47. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -314,9 +314,9 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">todoList</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.todoList</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">todoList</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">todolist_Qmake</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.todolist_Qmake</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">todolist_Qmake</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>

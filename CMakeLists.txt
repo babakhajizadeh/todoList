@@ -16,15 +16,14 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 
 add_executable(todoList
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
-    chatbox.h
-    chatbox.cpp
+               main.cpp
+               mainwindow.cpp
+               mainwindow.h
+               mainwindow.ui
+               chatbox.h
+               chatbox.cpp
+               addbutton.h
+               addbutton.cpp
                   )
 
 target_link_libraries(todoList PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
-
-
-

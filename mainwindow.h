@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "chatbox.h"
+#include "addbutton.h"
 
 
 class Mainchatbox;
@@ -18,13 +19,12 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    void setSize();
-
 
     ~MainWindow();
 private:
     Ui::MainWindow *ui;
-    Mainchatbox* m_chatbox; //test
+    Mainchatbox* m_chatbox;
+    addButton* m_add;
 
 };
 #endif // MAINWINDOW_H

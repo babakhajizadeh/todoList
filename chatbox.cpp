@@ -11,22 +11,12 @@ Mainchatbox::~Mainchatbox()
 
 void Mainchatbox::init()
 {
-    add = new QPushButton;
 
     inputTextBox = new QLineEdit;
 
-    this->inputTextBox->setGeometry(25,30,130,25);
+    this->inputTextBox->setGeometry(30,30,320,50);
+    setStyleSheet("QLineEdit { background-color: white }");
     qInfo() << "text box geometry set!";
-    this->add->setGeometry(140,30,50,25);
     qInfo() << "bottun geometry set!";
     this->inputTextBox->setParent(this);
-    this->add->setParent(this);
 }
-
-void Mainchatbox::display()
-{
-    this->add->show();
-    this->add->show();
-
-}
-
