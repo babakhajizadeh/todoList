@@ -20,6 +20,8 @@ add_executable(todoList
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    chatbox.h
+    chatbox.cpp
                   )
 
 target_link_libraries(todoList PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)

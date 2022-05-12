@@ -2,6 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "chatbox.h"
+
+
+class Mainchatbox;
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -13,9 +18,13 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    void setSize();
 
+
+    ~MainWindow();
 private:
     Ui::MainWindow *ui;
+    Mainchatbox* m_chatbox; //test
+
 };
 #endif // MAINWINDOW_H
