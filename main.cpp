@@ -1,13 +1,12 @@
-#include "mainwindow.h"
-#include "chatbox.h"
+#include "mainwidget.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-
-    w.show();
+    Widget mainWindow;
+    mainWindow.setWindowTitle("Todo List");
+    mainWindow.show();
     return a.exec();
 }
