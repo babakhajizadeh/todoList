@@ -21,8 +21,9 @@ public:
     ~addButton();
     QPushButton* add; //main add button
     void init();
-private:
 
+signals:
+    void addButtonClicked();
 
 };
 

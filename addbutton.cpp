@@ -11,7 +11,6 @@ addButton::~addButton()
 
 void addButton::init()
 {
-
     add = new QPushButton;
 
     this->add->setGeometry(370,30,70,50);
@@ -20,4 +19,10 @@ void addButton::init()
 
     qInfo() << "bottun geometry set!";
     this->add->setParent(this);
+
+    connect (add,
+             SIGNAL(released()),
+             this,
+             SIGNAL(addButtonClicked()));
 }
+

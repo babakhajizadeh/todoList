@@ -16,10 +16,14 @@ Widget::Widget(QWidget *parent)
     m_chatbox = new Mainchatbox;
     m_chatbox->init();
     m_chatbox->setParent(this);
+
+    QObject::connect(m_add,
+                     &addButton::addButtonClicked,
+                     m_chatbox,
+                     &Mainchatbox::getText);
 }
 
 Widget::~Widget()
 {
     delete ui;
 }
-

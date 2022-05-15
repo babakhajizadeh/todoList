@@ -4,9 +4,8 @@
 #include <QObject>
 #include <QWidget>
 #include <QLineEdit>
-#include <QPushButton>
 #include <QDebug>
-#include <QMainWindow>
+#include <QBuffer> //to work with QIODEvice interface for Qbytearrays
 
 /* this class creates top QtextLine
  * to read user input input .*/
@@ -21,8 +20,13 @@ public:
     ~Mainchatbox();
     QLineEdit* inputTextBox; //input textbox reads from user input
     void init();
-private:
 
+public slots:
+    void getText();
+
+private:
+    QByteArray m_input;
+    QBuffer m_buffer; //to work with QIODevice interface
 
 };
 

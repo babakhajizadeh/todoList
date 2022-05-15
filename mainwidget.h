@@ -18,6 +18,8 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
+private slots:
+
 private:
     Ui::Widget *ui;
     QPushButton* test;
