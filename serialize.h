@@ -3,32 +3,36 @@
 
 #include <QObject>
 #include <QWidget>
-#include <QJsonDocument>
+#include <QJsonObject>
 #include <QFile>
 #include <QIODevice>
+#include <QMap>
 
 /*this class is reponsible in creating QJsonObject
  * out of user inputs and the serialize it to
  * a binary text file*/
 
 
-class serialize
+class serialize : public QObject
 {
     Q_OBJECT
 public:
     serialize();
+    ~serialize();
 
-    void init(QByteArray* input);
-    bool readFile;
-    bool writeFile;
+    void init();      //creats serilizer instance
+    bool readFile();  //read back from binary
+    void writeFile(QByteArray* input, int); //write json to binary
 
 private:
-    QString m_fileName = "tasks.txt";
-    QDataStream* m_stream;
+    QMap<QString, QByteArray> *m_tasksMap; //map of tasks and their adresses
+    QString m_fileName;
+    QString key;
+    QDataStream m_stream;
+    QVariant vmap;
     QFile* m_serializedFile;
     QByteArray* m_input;
-    QJsonObject* m_object;
-    int m_keyCounter;
+    QJsonObject m_jsonobject;
 };
 
 #endif // SERIALIZE_H
