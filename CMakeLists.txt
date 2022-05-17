@@ -23,6 +23,8 @@ add_executable(todoList
     mainwidget.cpp
     mainwidget.h
     mainwidget.ui
+    serialize.cpp
+    serialize.h
                   )
 
 target_link_libraries(todoList PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)

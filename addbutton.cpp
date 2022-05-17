@@ -17,12 +17,13 @@ void addButton::init()
     this->add->setText(" ADD ");
     this->add->setStyleSheet("QPushButton {background-color: #A3C1DA}");
 
-    qInfo() << "bottun geometry set!";
+    qInfo() << "bottun geometry set.";
     this->add->setParent(this);
 
     connect (add,
              SIGNAL(released()),
              this,
              SIGNAL(addButtonClicked()));
+    qInfo() << "add button initilized.";
 }
 

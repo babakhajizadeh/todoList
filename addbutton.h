@@ -8,8 +8,8 @@
 #include <QDebug>
 #include <QMainWindow>
 
-/* this class creates main Qpushbutton
- * to interact with it's Qlineedit that read user inpu .*/
+/* this class provides 'add' and 'edit' Qpushbuttons
+ * to interact with their Qlineedit of each read user input.*/
 
 
 
@@ -19,8 +19,10 @@ class addButton: public QWidget
 public:
     addButton();
     ~addButton();
-    QPushButton* add; //main add button
     void init();
+private:
+    QPushButton* add; //for either add or edit buttons
+
 
 signals:
     void addButtonClicked();

@@ -5,6 +5,8 @@
 #include <QPushButton>
 #include "chatbox.h"
 #include "addbutton.h"
+#include "serialize.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -22,8 +24,7 @@ private slots:
 
 private:
     Ui::Widget *ui;
-    QPushButton* test;
-    Mainchatbox* m_chatbox;
-    addButton* m_add;
+    Mainchatbox* m_chatbox; //main text field to read user input via QLineEdit
+    addButton* m_add; //main add button
 };
 #endif // WIDGET_H
