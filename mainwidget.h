@@ -6,6 +6,7 @@
 #include "chatbox.h"
 #include "addbutton.h"
 #include "serialize.h"
+#include "chatlabel.h"
 
 
 class Widget : public QWidget
@@ -20,6 +21,7 @@ private slots:
 
 private:
     Mainchatbox* m_chatbox; //main text field to read user input via QLineEdit
-    addButton* m_add; //main add button
+    addButton* m_add;       //main add button
+    ChatLabel* m_label;     //labels
 };
 #endif // WIDGET_H

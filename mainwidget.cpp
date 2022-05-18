@@ -13,10 +13,18 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
     m_chatbox->init();
     m_chatbox->setParent(this);
 
+    m_label = new ChatLabel;
+//    m_label->setParent(this); must have layout first
+
     QObject::connect(m_add,
                      &addButton::addButtonClicked,
                      m_chatbox,
                      &Mainchatbox::getText);
+
+    QObject::connect(m_chatbox,
+                     &Mainchatbox::textready,
+                     m_label,
+                     &ChatLabel::getText);
 }
 
 Widget::~Widget()
