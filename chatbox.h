@@ -23,6 +23,9 @@ public:
     QLineEdit* inputTextBox; //input textbox reads from user input
     void init();
 
+signals:
+    void textready(QByteArray* input);
+
 public slots:
     void getText();
 
