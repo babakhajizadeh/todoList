@@ -25,14 +25,14 @@ public:
     void writeFile(QByteArray* input, int); //write json to binary
 
 private:
-    QMap<QString, QByteArray> *m_tasksMap; //map of tasks and their adresses
-    QString m_fileName;
-    QString key;
-    QDataStream m_stream;
-    QVariant vmap;
-    QFile* m_serializedFile;
-    QByteArray* m_input;
-    QJsonObject m_jsonobject;
+    QMap<QString, QByteArray> *m_tasksMap; //pointer to map of tasks and their adresses
+    QString m_fileName;       //binary file name
+    QString key;              //QMap key used in json
+    QDataStream m_streamOut;     //serializes data into binary
+    QVariantMap m_vmap;         //helps write Qmap to json
+    QFile* m_serializedFile;  //binaty file
+    QByteArray* m_input;      //pointer holds bytearray from widget
+    QJsonObject m_jsonobject; //json object of whole tasks
 };
 
 #endif // SERIALIZE_H
