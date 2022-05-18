@@ -24,6 +24,8 @@ add_executable(todoList
     mainwidget.h
     serialize.cpp
     serialize.h
+    chatlabel.h
+    chatlabel.cpp
                   )
 
 target_link_libraries(todoList PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
