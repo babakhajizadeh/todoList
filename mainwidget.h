@@ -8,10 +8,6 @@
 #include "serialize.h"
 
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class Widget; }
-QT_END_NAMESPACE
-
 class Widget : public QWidget
 {
     Q_OBJECT
@@ -23,7 +19,6 @@ public:
 private slots:
 
 private:
-    Ui::Widget *ui;
     Mainchatbox* m_chatbox; //main text field to read user input via QLineEdit
     addButton* m_add; //main add button
 };
