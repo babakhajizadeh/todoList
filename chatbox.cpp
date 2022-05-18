@@ -33,10 +33,8 @@ void Mainchatbox::getText()
     m_buffer.setBuffer(input);
     qInfo() << "mainchat box slot connected";
     m_keyCounter++;
-    qInfo() << "key is: " << m_keyCounter;
     m_buffer.open(QIODeviceBase::WriteOnly);
     m_buffer.write(this->inputTextBox->text().toUtf8()); //reads user input from ui
     m_buffer.close();
-
     m_serializer->writeFile(input, m_keyCounter);
 }
