@@ -22,7 +22,6 @@ add_executable(todoList
     addbutton.cpp
     mainwidget.cpp
     mainwidget.h
-    mainwidget.ui
     serialize.cpp
     serialize.h
                   )
