@@ -1,12 +1,11 @@
 #ifndef ADDBUTTON_H
 #define ADDBUTTON_H
 
-#include <QObject>
 #include <QWidget>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QDebug>
-#include <QMainWindow>
+#include <QHBoxLayout>  >
 
 /* this class provides 'add' and 'edit' Qpushbuttons
  * to interact with their Qlineedit of each read user input.*/
@@ -20,8 +19,9 @@ public:
     addButton();
     ~addButton();
     void init();
-private:
     QPushButton* add; //for either add or edit buttons
+    QHBoxLayout* parentLayout;
+private:
 
 
 signals:
