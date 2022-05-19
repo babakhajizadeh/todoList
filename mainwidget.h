@@ -7,6 +7,10 @@
 #include "addbutton.h"
 #include "serialize.h"
 #include "chatlabel.h"
+#include <QGridLayout>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+
 
 
 class Widget : public QWidget
@@ -14,6 +18,10 @@ class Widget : public QWidget
     Q_OBJECT
 
 public:
+    QVBoxLayout *lablesLayout;
+    QHBoxLayout *inputBox;
+    QWidget* displayWidget;
+
     Widget(QWidget *parent = nullptr);
     ~Widget();
 

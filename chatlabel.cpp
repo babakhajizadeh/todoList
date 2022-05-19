@@ -15,13 +15,21 @@ void ChatLabel::init()
 {
 
     chatlabel = new QLabel;
-    chatlabel->setGeometry(5,5,120,50);
+    chatlabel->setAlignment(Qt::AlignTop);
+
+    parentLayout = new QHBoxLayout(this);
+    parentLayout->addWidget(chatlabel);
+    parentLayout->setSpacing(0);
+    parentLayout->setSpacing(0);
+
+    chatlabel->setFixedHeight(100);
+    chatlabel->setParent(this);
+
+
     setStyleSheet("QLabel { background-color: #bfe2ff }");
     qInfo() << "Label geometry set!";
     chatlabel->setText(*read);
     chatlabel->setParent(this);
-    chatlabel->show();
-    this->setGeometry(5,5,300,90);
     this->show();
 
 }

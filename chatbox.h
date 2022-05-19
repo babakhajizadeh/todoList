@@ -1,8 +1,8 @@
 #ifndef CHATBOX_H
 #define CHATBOX_H
 
-#include <QObject>
 #include <QWidget>
+#include <QHBoxLayout>
 #include <QLineEdit>
 #include <QDebug>
 #include <QBuffer> //to work with QIODEvice interface for Qbytearrays
@@ -18,10 +18,13 @@ class Mainchatbox: public QWidget
     Q_OBJECT
 public:
     QByteArray* input;
+    QLineEdit* inputTextBox; //input textbox reads from user input
+    QHBoxLayout* parentLayout;
+
     Mainchatbox();
     ~Mainchatbox();
-    QLineEdit* inputTextBox; //input textbox reads from user input
     void init();
+
 
 signals:
     void textready(QByteArray* input);

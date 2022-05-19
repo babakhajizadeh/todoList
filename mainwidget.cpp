@@ -2,7 +2,7 @@
 
 Widget::Widget(QWidget *parent) : QWidget(parent)
 {
-    this->setFixedSize(480, 620);
+    setMinimumSize(480,620);
     this->setStyleSheet("background-color: grey");
 
     m_add = new addButton;
@@ -14,7 +14,22 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
     m_chatbox->setParent(this);
 
     m_label = new ChatLabel;
-//    m_label->setParent(this); must have layout first
+    m_label->setParent(this);
+
+    lablesLayout = new QVBoxLayout(this);
+    lablesLayout->setSpacing(0);
+    lablesLayout->setAlignment(Qt::AlignTop);
+    lablesLayout->addWidget(m_label);
+
+    inputBox = new QHBoxLayout(this);
+    inputBox->setSpacing(0);
+    inputBox->addWidget(m_chatbox);
+    inputBox->setAlignment(Qt::AlignTop);
+    inputBox->addWidget(m_add);
+
+
+    lablesLayout->addLayout(inputBox);
+    lablesLayout->addWidget(m_label);
 
     QObject::connect(m_add,
                      &addButton::addButtonClicked,

@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QBuffer> //to work with QIODEvice interface for Qbytearrays
+#include <QVBoxLayout>
 
 class ChatLabel : public QWidget
 {
@@ -16,6 +17,9 @@ public:
     QPushButton* del;
     QPushButton* edit;
     QLabel* chatlabel;
+    QHBoxLayout* parentLayout;
+    QVBoxLayout* buttonLaout;
+
     ChatLabel();
     ~ChatLabel();
     void init();
@@ -28,6 +32,7 @@ public slots:
 private:
     QByteArray* read;
     QBuffer m_buffer;
+    QVBoxLayout m_layout;
 
 };
 

@@ -13,17 +13,26 @@ Mainchatbox::~Mainchatbox()
 void Mainchatbox::init()
 {
 
-    inputTextBox = new QLineEdit;    
-    inputTextBox->setGeometry(30,30,320,50);
-    setStyleSheet("QLineEdit { background-color: white }");
+    inputTextBox = new QLineEdit;
+    parentLayout = new QHBoxLayout(this);
+    parentLayout->addWidget(inputTextBox);
+    parentLayout->setSpacing(0);
+
+    inputTextBox->setFixedHeight(50);
+    inputTextBox->setParent(this);
+
+
+    this->setStyleSheet("QLineEdit { background-color: yellow }");
+
+    inputTextBox->setStyleSheet("QLineEdit { background-color: white }");
     qInfo() << "text box geometry set!";
     this->inputTextBox->setParent(this);
     this->inputTextBox->setPlaceholderText("Click to write");
-
     m_serializer = new serialize;
     m_serializer->init();
     m_serializer->setParent(this);
     qInfo() << "serializer object constructed";
+
 }
 
 void Mainchatbox::getText()
