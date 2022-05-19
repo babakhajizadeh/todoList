@@ -12,6 +12,7 @@ addButton::~addButton()
 void addButton::init()
 {
     add = new QPushButton;
+    add->setAutoDefault(true);
     parentLayout = new QHBoxLayout(this);
     parentLayout->addWidget(add);;
     parentLayout->setSpacing(0);
@@ -24,6 +25,7 @@ void addButton::init()
              SIGNAL(released()),
              this,
              SIGNAL(addButtonClicked()));
+
     qInfo() << "add button initilized.";
 }
 
