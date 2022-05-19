@@ -48,6 +48,6 @@ void serialize::writeFile(QByteArray* input, int intkey)
     m_serializedFile->close(); //flush every thing to file
 
 
-    qInfo() << "bunary file built.";
+    qInfo() << "binary file built.";
 
 }
