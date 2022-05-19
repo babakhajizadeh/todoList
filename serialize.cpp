@@ -13,7 +13,7 @@ serialize::~serialize()
 void serialize::init()
 {
     m_fileName = "tasks.txt";
-    m_streamOut.setVersion(QDataStream::Qt_6_0);
+    m_streamOut.setVersion(QDataStream::Qt_4_0);
     m_serializedFile = new QFile(m_fileName);
     m_serializedFile->open(QIODevice::WriteOnly);
     qInfo() << "Qfile tasks.txt created";
@@ -36,7 +36,7 @@ void serialize::writeFile(QByteArray* input, int intkey)
     QMapIterator<QString, QByteArray> i(*m_tasksMap);
     while (i.hasNext()) {
         i.next();
-        m_vmap.insert(i.key(), i.value());
+        m_vmap.insert(i.key(), i.value().toHex());
     }
     m_jsonobject = QJsonObject::fromVariantMap(m_vmap);
     qInfo() << m_jsonobject;
