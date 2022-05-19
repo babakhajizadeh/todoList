@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QBuffer> //to work with QIODEvice interface for Qbytearrays
 #include <QVBoxLayout>
+#include <QList>
 
 class ChatLabel : public QWidget
 {
@@ -14,16 +15,19 @@ class ChatLabel : public QWidget
 
 
 public:
-    QPushButton* del;
-    QPushButton* edit;
-    QLabel* chatlabel;
-    QHBoxLayout* parentLayout;
-    QVBoxLayout* buttonLaout;
 
     ChatLabel();
     ~ChatLabel();
     void init();
+    void setLabel();
 
+private:
+    QPushButton* del;
+    QPushButton* edit;
+    QLabel* chatlabel;
+    QVector <QLabel*> *labelvect;
+    QVBoxLayout* parentLayout;
+    QVBoxLayout* buttonLaout;
 
 public slots:
     void getText(QByteArray* input);

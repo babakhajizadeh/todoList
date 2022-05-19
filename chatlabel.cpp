@@ -14,25 +14,26 @@ ChatLabel::~ChatLabel()
 void ChatLabel::init()
 {
 
+    labelvect = new QVector<QLabel*>;
+    parentLayout = new QVBoxLayout(this);
+    parentLayout->setSpacing(6);
+}
+
+void ChatLabel::setLabel()
+{
     chatlabel = new QLabel;
     chatlabel->setAlignment(Qt::AlignTop);
-
-    parentLayout = new QHBoxLayout(this);
     parentLayout->addWidget(chatlabel);
-    parentLayout->setSpacing(0);
-    parentLayout->setSpacing(0);
-
-    chatlabel->setFixedHeight(100);
+    chatlabel->setFixedHeight(50);
     chatlabel->setParent(this);
-
-
     setStyleSheet("QLabel { background-color: #bfe2ff }");
     qInfo() << "Label geometry set!";
     chatlabel->setText(*read);
     chatlabel->setParent(this);
-    this->show();
-
+    labelvect->push_back(chatlabel);
+    qInfo() << "totall labels in vecor:" << labelvect->count();
 }
+
 
 void ChatLabel::getText(QByteArray* input)
 {
@@ -43,5 +44,5 @@ void ChatLabel::getText(QByteArray* input)
     m_buffer.close();
     qInfo() << "label slot connected.";
     qInfo() << "label have red:" << *read;
-    init();
+    setLabel();
 }
