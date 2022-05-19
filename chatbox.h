@@ -17,10 +17,6 @@ class Mainchatbox: public QWidget
 {
     Q_OBJECT
 public:
-    QByteArray* input;
-    QLineEdit* inputTextBox; //input textbox reads from user input
-    QHBoxLayout* parentLayout;
-
     Mainchatbox();
     ~Mainchatbox();
     void init();
@@ -36,6 +32,9 @@ private:
     QBuffer m_buffer; //to work with QIODevice interface
     serialize* m_serializer; //instance of class providing serializing job
     int m_keyCounter = 0;
+    QByteArray* input;
+    QLineEdit* inputTextBox; //input textbox reads from user input
+    QHBoxLayout* parentLayout;
 };
 
 #endif // CHATBOX_Hent
