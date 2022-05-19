@@ -18,16 +18,15 @@ class Widget : public QWidget
     Q_OBJECT
 
 public:
-    QVBoxLayout *lablesLayout;
-    QHBoxLayout *inputBox;
-    QWidget* displayWidget;
-
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
 private slots:
 
 private:
+    QVBoxLayout *lablesLayout;
+    QHBoxLayout *inputBox;
+    QWidget* displayWidget;
     Mainchatbox* m_chatbox; //main text field to read user input via QLineEdit
     addButton* m_add;       //main add button
     ChatLabel* m_label;     //labels

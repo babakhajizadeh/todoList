@@ -14,6 +14,7 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
     m_chatbox->setParent(this);
 
     m_label = new ChatLabel;
+    m_label->init();
     m_label->setParent(this);
 
     lablesLayout = new QVBoxLayout(this);
