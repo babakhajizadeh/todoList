@@ -18,19 +18,24 @@ public:
 
     ChatLabel();
     ~ChatLabel();
-    void init();
     void setLabel();
 
 private:
-    QPushButton* del;
-    QPushButton* edit;
+    QPushButton* delButton;
+    QPushButton* editButton;
     QLabel* chatlabel;
-    QVector <QLabel*> *labelvect;
-    QVBoxLayout* parentLayout;
-    QVBoxLayout* buttonLaout;
+    QVBoxLayout* parentLayout; //provides vertical layout for main widget
+    QHBoxLayout* labelLayout;  //each label and respecting buttons
+    QVBoxLayout* buttonLayout; //initial add and delete buttons layout
+
+
+signals:
+    void delButtonClicked();
+    void editButtonClicked();
+
 
 public slots:
-    void getText(QByteArray* input);
+    void init(QByteArray* input);
 
 
 private:
