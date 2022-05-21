@@ -35,6 +35,7 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
                      &Mainchatbox::textready,
                      this,
                      &Widget::controller);
+
 }
 
 
@@ -44,27 +45,34 @@ Widget::~Widget()
 
 }
 
-void Widget::controller(QByteArray *input, int keycouter)
+void Widget::controller(QByteArray *input, int keycounter)
 {
     qInfo () << "mainwidget slot connected.";
 
     m_label = new ChatLabel;
     m_label->setParent(this);
-    m_label->init(input);
+    m_label->init(input, keycounter);
     mainLayout->addWidget(m_label); //includes child layouts of labels
     mainLayout->setAlignment(Qt::AlignTop);
     QObject::connect(m_label,
                      &ChatLabel::delButtonClicked,
                      this,
                      &Widget::deleteLabel);
+    QObject::connect(m_label,
+                     &ChatLabel::editButtonClicked,
+                     this,
+                     &Widget::editLabel);
 }
 
-void Widget::deleteLabel()
+void Widget::deleteLabel(ChatLabel* choice, int labelkey)
 {
-    delete m_label;
+    delete choice;
+    qInfo()<< "label with key" << labelkey << "deleted.";
+    emit labelObjectDeleted(labelkey); //signal for serializer class
 }
 
-void Widget::editLabel()
+void Widget::editLabel(ChatLabel* choice, int labelkey)
 {
-
+    emit labelObjectEdited(choice, labelkey); // signal to serializer
+    qInfo()<< "label with key" << labelkey << "wants being edit!.";
 }

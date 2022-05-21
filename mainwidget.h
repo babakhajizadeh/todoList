@@ -19,11 +19,15 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
+signals:
+    void labelObjectDeleted(int labelkey);
+    void labelObjectEdited(ChatLabel* choice, int labelkey);
+
 
 public slots:
     void controller(QByteArray* input,int keycouter);
-    void deleteLabel();
-    void editLabel();
+    void deleteLabel(ChatLabel* choice, int labelkey);
+    void editLabel(ChatLabel* choice, int labelkey);
 
 
 private:
@@ -33,5 +37,7 @@ private:
     Mainchatbox* m_chatbox; //main text field to read user input via QLineEdit
     addButton* m_add;       //main add button
     ChatLabel* m_label;     //labels
+    QMap <QString,ChatLabel> *lebelsParentClassList;
+
 };
 #endif // WIDGET_H
