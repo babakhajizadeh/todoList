@@ -13,14 +13,9 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
     m_chatbox->init();
     m_chatbox->setParent(this);
 
-    m_label = new ChatLabel;
-    m_label->init();
-    m_label->setParent(this);
-
-    lablesLayout = new QVBoxLayout(this);
-    lablesLayout->setSpacing(0);
-    lablesLayout->setAlignment(Qt::AlignTop);
-    lablesLayout->addWidget(m_label);
+    mainLayout = new QVBoxLayout(this);
+    mainLayout->setSpacing(0);
+    mainLayout->setAlignment(Qt::AlignTop);
 
     inputBox = new QHBoxLayout(this);
     inputBox->setSpacing(0);
@@ -28,9 +23,8 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
     inputBox->setAlignment(Qt::AlignTop);
     inputBox->addWidget(m_add);
 
-
-    lablesLayout->addLayout(inputBox);
-    lablesLayout->addWidget(m_label);
+    mainLayout->addLayout(inputBox);
+//
 
     QObject::connect(m_add,
                      &addButton::addButtonClicked,
@@ -39,11 +33,38 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
 
     QObject::connect(m_chatbox,
                      &Mainchatbox::textready,
-                     m_label,
-                     &ChatLabel::getText);
+                     this,
+                     &Widget::controller);
 }
 
+
+
 Widget::~Widget()
+{
+
+}
+
+void Widget::controller(QByteArray *input, int keycouter)
+{
+    qInfo () << "mainwidget slot connected.";
+
+    m_label = new ChatLabel;
+    m_label->setParent(this);
+    m_label->init(input);
+    mainLayout->addWidget(m_label); //includes child layouts of labels
+    mainLayout->setAlignment(Qt::AlignTop);
+    QObject::connect(m_label,
+                     &ChatLabel::delButtonClicked,
+                     this,
+                     &Widget::deleteLabel);
+}
+
+void Widget::deleteLabel()
+{
+    delete m_label;
+}
+
+void Widget::editLabel()
 {
 
 }

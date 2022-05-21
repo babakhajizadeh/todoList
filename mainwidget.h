@@ -12,7 +12,6 @@
 #include <QVBoxLayout>
 
 
-
 class Widget : public QWidget
 {
     Q_OBJECT
@@ -21,10 +20,14 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
-private slots:
+public slots:
+    void controller(QByteArray* input,int keycouter);
+    void deleteLabel();
+    void editLabel();
+
 
 private:
-    QVBoxLayout *lablesLayout;
+    QVBoxLayout *mainLayout;
     QHBoxLayout *inputBox;
     QWidget* displayWidget;
     Mainchatbox* m_chatbox; //main text field to read user input via QLineEdit
