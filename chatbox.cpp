@@ -46,6 +46,6 @@ void Mainchatbox::getText()
     m_buffer.write(this->inputTextBox->text().toUtf8()); //reads user input from ui
     m_buffer.close();
     inputTextBox->clear();
-    emit textready(input);
+    emit textready(input,m_keyCounter);
     m_serializer->writeFile(input, m_keyCounter);
 }

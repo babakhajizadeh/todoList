@@ -23,7 +23,7 @@ public:
 
 
 signals:
-    void textready(QByteArray* input);
+    void textready(QByteArray* input,int keycouter);
 
 public slots:
     void getText();
