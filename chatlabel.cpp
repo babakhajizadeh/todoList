@@ -11,9 +11,10 @@ ChatLabel::~ChatLabel()
     qInfo() << "label object destructed";
 }
 
-void ChatLabel::init(QByteArray* input)
+void ChatLabel::init(QByteArray* input, int labelkey)
 {
     chatlabel = new QLabel;
+    m_key = labelkey;
     chatlabel->setObjectName("label");
 
     delButton = new QPushButton;
@@ -67,9 +68,20 @@ void ChatLabel::init(QByteArray* input)
     connect (delButton,
              SIGNAL(released()),
              this,
-             SIGNAL(delButtonClicked()));
+             SLOT(deleteSignalEmitter()));
+
     connect (editButton,
              SIGNAL(released()),
              this,
-             SIGNAL(editButtonClicked()));
+             SLOT(editSignalEmiter()));
+}
+
+void ChatLabel::deleteSignalEmitter()
+{
+    emit delButtonClicked(this, m_key);
+}
+
+void ChatLabel::editSignalEmiter()
+{
+    emit editButtonClicked(this, m_key);
 }

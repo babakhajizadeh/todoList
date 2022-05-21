@@ -30,19 +30,20 @@ private:
 
 
 signals:
-    void delButtonClicked();
-    void editButtonClicked();
+    void delButtonClicked(ChatLabel*,int);
+    void editButtonClicked(ChatLabel*, int);
 
 
 public slots:
-    void init(QByteArray* input);
-
+    void init(QByteArray* input, int labelkey);
+    void deleteSignalEmitter();
+    void editSignalEmiter();
 
 private:
     QByteArray* read;
     QBuffer m_buffer;
     QVBoxLayout m_layout;
-
+    int m_key = 0;
 };
 
 #endif // CHATLABEL_H
