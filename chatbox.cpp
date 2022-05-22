@@ -14,6 +14,11 @@ void Mainchatbox::init()
 {
 
     inputTextBox = new QLineEdit;
+    QObject::connect(inputTextBox,
+             SIGNAL(returnPressed()),
+             this,
+             SIGNAL(RetunKeyPressed()));
+
     parentLayout = new QHBoxLayout(this);
     parentLayout->addWidget(inputTextBox);
     parentLayout->setSpacing(0);
@@ -28,24 +33,45 @@ void Mainchatbox::init()
     qInfo() << "text box geometry set!";
     this->inputTextBox->setParent(this);
     this->inputTextBox->setPlaceholderText("Click to write");
-    m_serializer = new serialize;
-    m_serializer->init();
-    m_serializer->setParent(this);
-    qInfo() << "serializer object constructed";
 
 }
 
 void Mainchatbox::getText()
 {
-    input = new QByteArray;
+    if(!editMode){
+        input = new QByteArray;
+        m_buffer.setBuffer(input);
+        qInfo() << "mainchat box slot connected";
+        m_keyCounter++;
+        m_buffer.open(QIODeviceBase::WriteOnly);
+        m_buffer.write(this->inputTextBox->text().toUtf8()); //reads user input from ui
+        m_buffer.close();
+        inputTextBox->clear();
+        emit textready(input,m_keyCounter);
+    }
+    else
+    {
+        input = new QByteArray;
+        m_buffer.setBuffer(input);
+        qInfo() << "mainchat box slot connected";
+        m_buffer.open(QIODeviceBase::WriteOnly);
+        m_buffer.write(this->inputTextBox->text().toUtf8()); //reads user input from ui
+        m_buffer.close();
+        inputTextBox->clear();
 
-    m_buffer.setBuffer(input);
-    qInfo() << "mainchat box slot connected";
-    m_keyCounter++;
-    m_buffer.open(QIODeviceBase::WriteOnly);
-    m_buffer.write(this->inputTextBox->text().toUtf8()); //reads user input from ui
-    m_buffer.close();
-    inputTextBox->clear();
-    emit textready(input,m_keyCounter);
-    m_serializer->writeFile(input, m_keyCounter);
+        underEdit->edit(input);
+        emit editready(underEdit,underEditKey);
+        underEdit->setDisabled(false);
+    }
+}
+
+void Mainchatbox::editRequestHandler(ChatLabel* choice, int labelkey)
+{   //copies label text to chatbox for edit
+    underEdit = choice;
+    underEditKey = labelkey;
+    qInfo() << "mainchatbox slot for label edit trigerred";
+    qInfo() << "value:" << underEdit->getText();
+    underEdit->setDisabled(true);
+    this->inputTextBox->setText(underEdit->getText());
+    editMode = true;
 }
