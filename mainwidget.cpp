@@ -3,6 +3,7 @@
 Widget::Widget(QWidget *parent) : QWidget(parent)
 {
     setMinimumSize(480,620);
+
     this->setStyleSheet("background-color: grey");
 
     m_add = new addButton;
@@ -23,6 +24,11 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
     inputBox->setAlignment(Qt::AlignTop);
     inputBox->addWidget(m_add);
 
+    m_serializer = new serialize;
+    m_serializer->init();
+    m_serializer->setParent(this);
+    qInfo() << "serializer object constructed";
+
     mainLayout->addLayout(inputBox);
 //
 
@@ -32,9 +38,29 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
                      &Mainchatbox::getText);
 
     QObject::connect(m_chatbox,
+                     &Mainchatbox::RetunKeyPressed,
+                     m_chatbox,
+                     &Mainchatbox::getText);
+
+    QObject::connect(m_chatbox,
                      &Mainchatbox::textready,
                      this,
                      &Widget::controller);
+
+    QObject::connect(this,
+                    &Widget::chatLabelObjectConstructed,
+                    m_serializer,
+                    &serialize::serializer,Qt::UniqueConnection);
+
+    QObject::connect(m_chatbox,
+                    &Mainchatbox::editready,
+                    m_serializer,
+                    &serialize::edit,Qt::UniqueConnection);
+
+    QObject::connect(this,
+                    &Widget::labelObjectDeleteRequest,
+                    m_serializer,
+                    &serialize::remove,Qt::UniqueConnection);
 
 }
 
@@ -62,17 +88,24 @@ void Widget::controller(QByteArray *input, int keycounter)
                      &ChatLabel::editButtonClicked,
                      this,
                      &Widget::editLabel);
+
+    QObject::connect(this,
+                     &Widget::labelObjectEditRequest,
+                     m_chatbox,
+                     &Mainchatbox::editRequestHandler,Qt::UniqueConnection);
+    emit chatLabelObjectConstructed(m_label,keycounter);
 }
 
 void Widget::deleteLabel(ChatLabel* choice, int labelkey)
 {
     delete choice;
     qInfo()<< "label with key" << labelkey << "deleted.";
-    emit labelObjectDeleted(labelkey); //signal for serializer class
+    emit labelObjectDeleteRequest(labelkey); //signal for serializer class
 }
 
 void Widget::editLabel(ChatLabel* choice, int labelkey)
 {
-    emit labelObjectEdited(choice, labelkey); // signal to serializer
-    qInfo()<< "label with key" << labelkey << "wants being edit!.";
+    emit labelObjectEditRequest(choice, labelkey); // signal to serializer
+    qInfo()<< "label with key" << labelkey << "wants being edited!.";
+    qInfo() << "value:" << choice->getText();
 }

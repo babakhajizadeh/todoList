@@ -20,8 +20,9 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 signals:
-    void labelObjectDeleted(int labelkey);
-    void labelObjectEdited(ChatLabel* choice, int labelkey);
+    void labelObjectDeleteRequest(int labelkey);
+    void labelObjectEditRequest(ChatLabel* choice, int labelkey);
+    void chatLabelObjectConstructed(ChatLabel* m_chatLabel, int key);
 
 
 public slots:
@@ -31,6 +32,7 @@ public slots:
 
 
 private:
+    serialize* m_serializer;
     QVBoxLayout *mainLayout;
     QHBoxLayout *inputBox;
     QWidget* displayWidget;
