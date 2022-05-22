@@ -19,6 +19,8 @@ public:
     ChatLabel();
     ~ChatLabel();
     void setLabel();
+    QString getText();
+    void edit(QByteArray* newtext);
 
 private:
     QPushButton* delButton;
@@ -38,6 +40,7 @@ public slots:
     void init(QByteArray* input, int labelkey);
     void deleteSignalEmitter();
     void editSignalEmiter();
+
 
 private:
     QByteArray* read;

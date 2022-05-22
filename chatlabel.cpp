@@ -11,6 +11,20 @@ ChatLabel::~ChatLabel()
     qInfo() << "label object destructed";
 }
 
+QString ChatLabel::getText()
+{
+    return chatlabel->text();
+}
+
+
+
+void ChatLabel::edit(QByteArray *newtext)
+{
+    this->chatlabel->clear();
+    this->chatlabel->setText(*newtext);
+}
+
+
 void ChatLabel::init(QByteArray* input, int labelkey)
 {
     chatlabel = new QLabel;
@@ -64,6 +78,7 @@ void ChatLabel::init(QByteArray* input, int labelkey)
     setStyleSheet("QLabel { background-color: #f2f1cb }");
     qInfo() << "Label geometry set!";
     chatlabel->setText(*read);
+    delete read;
 
     connect (delButton,
              SIGNAL(released()),
@@ -83,5 +98,7 @@ void ChatLabel::deleteSignalEmitter()
 
 void ChatLabel::editSignalEmiter()
 {
+
     emit editButtonClicked(this, m_key);
 }
+
