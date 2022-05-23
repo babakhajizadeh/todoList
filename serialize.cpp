@@ -134,5 +134,6 @@ void serialize::writeFile()
     m_streamOut << m_jsonobject;
     m_serializedFile->close(); //flush every thing to file
     qInfo() << "binary file built.";
+    delete m_labelmap;
 
 }
