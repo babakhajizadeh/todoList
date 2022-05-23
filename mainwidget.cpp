@@ -2,7 +2,8 @@
 
 Widget::Widget(QWidget *parent) : QWidget(parent)
 {
-    setMinimumSize(480,620);
+    setFixedWidth(480);
+    setMinimumHeight(620);
 
     this->setStyleSheet("background-color: grey");
 
@@ -25,12 +26,15 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
     inputBox->addWidget(m_add);
 
     m_serializer = new serialize;
+    QObject::connect(m_serializer,
+                     &serialize::jsonReady,
+                     this,
+                     &Widget::controller);
     m_serializer->init();
     m_serializer->setParent(this);
-    qInfo() << "serializer object constructed";
 
     mainLayout->addLayout(inputBox);
-//
+
 
     QObject::connect(m_add,
                      &addButton::addButtonClicked,
@@ -74,7 +78,6 @@ Widget::~Widget()
 void Widget::controller(QByteArray *input, int keycounter)
 {
     qInfo () << "mainwidget slot connected.";
-
     m_label = new ChatLabel;
     m_label->setParent(this);
     m_label->init(input, keycounter);

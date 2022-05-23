@@ -30,6 +30,8 @@ public slots:
     void deleteLabel(ChatLabel* choice, int labelkey);
     void editLabel(ChatLabel* choice, int labelkey);
 
+protected slots:
+
 
 private:
     serialize* m_serializer;
