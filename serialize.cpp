@@ -46,7 +46,7 @@ void serialize::edit(ChatLabel* input, int key)
     m_vmap.clear();
     while (i.hasNext()) {
         i.next();
-        m_vmap.insert(i.key(), i.value()); //i.value().toHex()
+        m_vmap.insert(i.key(), i.value().toLatin1().toHex()); //i.value().toHex()
     }
     m_jsonobject = QJsonObject::fromVariantMap(m_vmap);
     qInfo() << m_jsonobject;
@@ -67,7 +67,8 @@ void serialize::deserializer() //mthod for deserializing
         QJsonValue value = m_jsonobject.value(key);
         QString strValue = value.toString();
         intkey = key.toInt();
-        QByteArray utf8value = strValue.toUtf8().constData();
+        QByteArray utf8value;
+        utf8value = QByteArray::fromBase64(strValue.toUtf8());
         emit jsonReady(&utf8value, intkey);
     }
 }
@@ -107,6 +108,7 @@ void serialize::buildMap()
             m_labelmap->insert(olderkeys,strValue);
             temp_counter ++;
         }
+
     }
     int sum = 0;
     sum += temp_counter;
@@ -120,7 +122,7 @@ void serialize::buildMap()
     QMapIterator<QString, QString> i(*m_labelmap);
     while (i.hasNext()) {
         i.next();
-        m_vmap.insert(i.key(), i.value()); //i.value().toHex()
+        m_vmap.insert(i.key(), i.value().toUtf8().toBase64()); //.toAscii().toHex(
     }
     m_jsonobject = QJsonObject::fromVariantMap(m_vmap);
     qInfo() << m_jsonobject;
