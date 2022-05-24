@@ -97,7 +97,7 @@ void serialize::init()
 void serialize::buildMap()
 {
     int temp_counter = 0;
-    if(QFileInfo::exists(m_fileName) && notyetinserted) //cheks wheter any record exist.
+    if(QFileInfo::exists(m_fileName)) //cheks wheter any record exist.
     {
 
         foreach(const QString& olderkeys, m_jsonobject.keys())
@@ -112,9 +112,10 @@ void serialize::buildMap()
     int sum = 0;
     sum += temp_counter;
     sum += m_key.toInt();
+    qInfo() << "Qstring key initially was:" << m_key;
     m_key = QString::number(sum);
     qInfo() << "sum of keys:" << sum;
-    qInfo() << "Qstring key it self:" << m_key;
+    qInfo() << "Qstring updated to:" << m_key;
 
     m_labelmap->insert(m_key,(m_input->getText()));
     QMapIterator<QString, QString> i(*m_labelmap);
@@ -134,6 +135,5 @@ void serialize::writeFile()
     m_streamOut << m_jsonobject;
     m_serializedFile->close(); //flush every thing to file
     qInfo() << "binary file built.";
-    delete m_labelmap;
-
+//    delete m_labelmap;
 }

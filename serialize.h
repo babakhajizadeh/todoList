@@ -48,7 +48,6 @@ private:
     QFile* m_serializedFile;  //binaty file
     ChatLabel* m_input;      //pointer holds bytearray from widget
     QJsonObject m_jsonobject; //json object of whole tasks
-    bool notyetinserted = true;
 };
 
 #endif // SERIALIZE_H
