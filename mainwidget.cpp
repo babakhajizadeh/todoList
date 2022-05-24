@@ -25,6 +25,8 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
     inputBox->setAlignment(Qt::AlignTop);
     inputBox->addWidget(m_add);
 
+    mainLayout->addLayout(inputBox);
+
     m_serializer = new serialize;
     QObject::connect(m_serializer,
                      &serialize::jsonReady,
@@ -33,7 +35,6 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
     m_serializer->init();
     m_serializer->setParent(this);
 
-    mainLayout->addLayout(inputBox);
 
 
     QObject::connect(m_add,
