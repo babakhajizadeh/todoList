@@ -107,7 +107,6 @@ void serialize::buildMap()
             m_labelmap->insert(olderkeys,strValue);
             temp_counter ++;
         }
-        notyetinserted = false;
     }
     int sum = 0;
     sum += temp_counter;
