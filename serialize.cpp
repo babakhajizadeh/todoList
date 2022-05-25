@@ -22,14 +22,23 @@ void serialize::serializer(ChatLabel* input, int key) //slot
 
 void serialize::remove(int key)
 {
+    foreach(const QString& olderkeys, m_jsonobject.keys())
+    {
+        QJsonValue value = m_jsonobject.value(olderkeys);
+        QString strValue = value.toString();
+        QByteArray utf8value;
+        utf8value = QByteArray::fromBase64(strValue.toUtf8());
+        strValue = QString(utf8value);
+        m_labelmap->insert(olderkeys,strValue);
+    }
     m_key = QString::number(key);
     qInfo() << "delete call for owner of a key:" << key;
     m_labelmap->remove(m_key);
-    QMapIterator<QString, QString> i(*m_labelmap);
     m_vmap.clear();
+    QMapIterator<QString, QString> i(*m_labelmap);
     while (i.hasNext()) {
         i.next();
-        m_vmap.insert(i.key(), i.value()); //i.value().toHex()
+        m_vmap.insert(i.key(), i.value().toUtf8().toBase64()); //.toAscii().toHex(
     }
     m_jsonobject = QJsonObject::fromVariantMap(m_vmap);
     qInfo() << m_jsonobject;
@@ -39,17 +48,13 @@ void serialize::remove(int key)
 
 void serialize::edit(ChatLabel* input, int key)
 {
+
     m_input = input;
     m_key = QString::number(key);
+    qInfo() << input->getText();
     m_labelmap->insert(m_key,input->getText());
     QMapIterator<QString, QString> i(*m_labelmap);
-    m_vmap.clear();
-    while (i.hasNext()) {
-        i.next();
-        m_vmap.insert(i.key(), i.value().toLatin1().toHex()); //i.value().toHex()
-    }
-    m_jsonobject = QJsonObject::fromVariantMap(m_vmap);
-    qInfo() << m_jsonobject;
+    buildMap();
     writeFile();
 }
 
@@ -69,6 +74,7 @@ void serialize::deserializer() //mthod for deserializing
         intkey = key.toInt();
         QByteArray utf8value;
         utf8value = QByteArray::fromBase64(strValue.toUtf8());
+        qInfo() << utf8value;
         emit jsonReady(&utf8value, intkey);
     }
 }
@@ -87,8 +93,6 @@ void serialize::init()
     }
     else
     {
-        m_streamOut.setVersion(QDataStream::Qt_4_0);
-        m_serializedFile = new QFile(m_fileName);
         m_serializedFile->open(QIODevice::WriteOnly);
         qInfo() << "Qfile tasks.txt created";
         m_serializedFile->close(); //empty tasks.txt generated
@@ -100,7 +104,7 @@ void serialize::buildMap()
     int temp_counter = 0;
     if(QFileInfo::exists(m_fileName)) //cheks wheter any record exist.
     {
-
+        temp_counter = 0;
         foreach(const QString& olderkeys, m_jsonobject.keys())
         {
             QJsonValue value = m_jsonobject.value(olderkeys);
@@ -114,10 +118,8 @@ void serialize::buildMap()
 
     }
     int sum = 0;
-    sum += temp_counter;
-    sum += m_key.toInt();
+    sum = temp_counter;
     qInfo() << "Qstring key initially was:" << m_key;
-    m_key = QString::number(sum);
     qInfo() << "sum of keys:" << sum;
     qInfo() << "Qstring updated to:" << m_key;
 

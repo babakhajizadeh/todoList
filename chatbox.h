@@ -7,6 +7,10 @@
 #include <QDebug>
 #include <QBuffer> //to work with QIODEvice interface for Qbytearrays
 #include "chatlabel.h"
+#include <QFileInfo>
+#include <QIODevice>
+#include <QJsonObject>
+#include <QFile>
 
 /* this class creates top QtextLine
  * to read user input input .*/
@@ -40,6 +44,13 @@ private:
     bool editMode = false;
     ChatLabel* underEdit;
     int underEditKey = 0;
+    QJsonObject m_jsonobject; //json object of whole tasks
+    QString m_fileName = "tasks.txt";       //binary file name                  //class chatlabel works with type int
+    QDataStream m_streamOut;     //serializes data into binary
+    QDataStream m_streamIn;
+    QVariantMap m_vmap;         //helps write Qmap to json
+    QFile* m_serializedFile;  //binaty file
+    bool notyetchecked = true;
 };
 
 #endif // CHATBOX_Hent

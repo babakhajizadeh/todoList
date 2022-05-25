@@ -39,6 +39,20 @@ void Mainchatbox::init()
 void Mainchatbox::getText()
 {
     if(!editMode){
+        if(QFileInfo::exists(m_fileName) && notyetchecked) //cheks wheter any record exist.
+        {
+            m_serializedFile = new QFile(m_fileName);
+            m_serializedFile->open(QIODevice::ReadOnly);
+            m_streamIn.setVersion(QDataStream::Qt_4_0);
+            m_streamIn.setDevice(m_serializedFile);
+            m_streamIn >> m_jsonobject;
+            m_serializedFile->close(); //flush every thing to file
+            foreach(const QString& olderkeys, m_jsonobject.keys())
+            {
+                m_keyCounter++;
+            }
+            notyetchecked = false;
+        }
         input = new QByteArray;
         m_buffer.setBuffer(input);
         qInfo() << "mainchat box slot connected";
