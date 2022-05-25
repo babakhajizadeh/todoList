@@ -105,6 +105,9 @@ void serialize::buildMap()
         {
             QJsonValue value = m_jsonobject.value(olderkeys);
             QString strValue = value.toString();
+            QByteArray utf8value;
+            utf8value = QByteArray::fromBase64(strValue.toUtf8());
+            strValue = QString(utf8value);
             m_labelmap->insert(olderkeys,strValue);
             temp_counter ++;
         }
