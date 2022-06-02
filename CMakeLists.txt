@@ -2,8 +2,12 @@ cmake_minimum_required(VERSION 3.5)
 
 project(todoList VERSION 0.1 LANGUAGES CXX)
 
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_PREFIX_PATH "~/Qt/6.2.4/gcc_64/lib/cmake")
+
+# change directory to Qt's build directory after make and make install
+set(CMAKE_PREFIX_PATH "~/QtStatic")
+
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -11,10 +15,14 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
- find_package(Qt6 COMPONENTS REQUIRED Widgets) 
-if (NOT Qt6_FOUND)
-    find_package(Qt5 5.15 REQUIRED COMPONENTS Core Widgets)
-endif()
+
+find_package(Qt6 COMPONENTS Core Widgets REQUIRED)
+
+#find_package(Wayland)
+#find_package(EGL)
+#find_package(XCB)
+#find_package(GLIB2)
+#find_package(WaylandScanner)
 
 
 
@@ -32,7 +40,8 @@ add_executable(todoList
     source/chatlabel.cpp
                   )
 
-target_link_libraries(todoList PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+
+target_link_libraries(todoList PRIVATE Qt6::Core Qt6::Widgets)
 
 
 
