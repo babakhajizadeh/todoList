@@ -8,17 +8,24 @@
 #include <QVBoxLayout>
 #include <QList>
 
+/**
+ * @brief This class has major responsiblity in creating todo tasks as known as Chat Labels.
+ * 
+ * In else wheres in this program, what's so called Chat Labels are in fact todo list tasks
+ * and their corresponding widgets on UI, these widgets creations get triggered by add button 
+ * which is defined in class addButton and reads it's data from class Mainchatbox.
+ * this class is able to intract with both of those classes for unlimited times.
+ * 
+ */
+
 class ChatLabel : public QWidget
 {
     Q_OBJECT
-
-
 
 public:
 
     ChatLabel();
     ~ChatLabel();
-    void setLabel();
     QString getText();
     void edit(QByteArray* newtext);
 
