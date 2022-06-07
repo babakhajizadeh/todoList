@@ -12,7 +12,7 @@
 #include <unistd.h>
 
 /**
- * @brief The class of serializaton and deserialization of IO.   
+ * @brief This class provides class serializaton and deserialization of IO.   
  * 
  * This class is one of the largest class with several slots and signals 
  * takes responsiblity of reading and writing stream of data to 

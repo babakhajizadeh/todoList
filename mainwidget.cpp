@@ -94,9 +94,9 @@ Widget::~Widget()
  * by taking care of children widgets.
  * 
  * It impose proper controlled logics in creating and modifying children classes as well as setting up their connections of signals and slots
- * that are explained in details in each respecting class documentation. children classes
+ * that are explained in details in each respective class documentation. children classes
  * including ChatLabel, Mainchatbox and \ref serialize getting managed via this method 
- * it alos handles Edit and Delete requests signals for children classes in charge e.g.for class serialize 
+ * it also handles Edit and Delete requests signals for children classes in charge, e.g.for class \ref serialize 
  * which has responsibility of creating binary data.
  * 
  */

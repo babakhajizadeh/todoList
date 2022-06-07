@@ -47,10 +47,10 @@ void serialize::serializer(ChatLabel* input, int key) //slot
 /**
  * @brief This member slot take responsiblity of deleting class ChatLable instance objects.
  * 
- * once delete button being pressed by End User it emits signal of Widget::labelObjectDeleteRequest
+ * once Delete button being pressed by End User it emits signal of Widget::labelObjectDeleteRequest
  * from mainwondow which triggers this slot. it takes responsiblity of deleting objects of class
- * ChatLabel objects by recieving it's corresponding key. so it first removes from Json object then calls
- * methos writeFile() to update changes to binary file on the disk.
+ * ChatLabel by recieving it's corresponding key. So it first removes from Json object then calls
+ * methods writeFile() to update changes to binary file on the disk.
  * 
  * @param key 
  * A corresponding identifier of each ChatLabel objects. as used in  maps and Json object. provided by class Mainchatbox

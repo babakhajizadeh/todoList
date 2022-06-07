@@ -40,7 +40,7 @@ QString ChatLabel::getText()
 /**
  * @brief method for edit ChatLabel instance's string values
  * 
- * Once Edit button provided by class Mainchatbox triggred (released), eventually this will be called as a method to 
+ * Once Edit button provided by class Mainchatbox triggered (released), eventually this will be called as a method to 
  * modify string value followed by editButtonClicked() signal which notifies class \ref serialize and Mainchatbox of 
  * the ongoing edit incident.
  * 
@@ -130,9 +130,9 @@ void ChatLabel::init(QByteArray* input, int labelkey)
 }
 
 /**
- * @brief this method emits delButtonClicked() signal.
+ * @brief This method emits delButtonClicked() signal.
  * 
- * which then activates slot Widget::deleteLabel slot of main widget and eventually when 
+ * It then activates slot Widget::deleteLabel slot of main widget and eventually when 
  * ChatLabel object deleted it emits Widget::labelObjectDeleteRequest signal to notify slot of serialize::remove
  * which takes reponsiblity of removing ChatLabel also from binary file.
  * 
@@ -144,7 +144,7 @@ void ChatLabel::deleteSignalEmitter()
 }
 
 /**
- * @brief this method emit editButtonClicked() signal once end user click on Edit button on UI.
+ * @brief This method emit editButtonClicked() signal once end user click on Edit button on UI.
  * and that signal trigers Widget::editLabel slot in main widget where another signal of
  * Widget::labelObjectEditRequest emits to notify both classes of Mainchatbox via
  * Mainchatbox::editRequestHandler slot and \ref serialize via
