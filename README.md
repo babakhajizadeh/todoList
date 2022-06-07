@@ -38,12 +38,17 @@ once configuration succeed then run:
 ```sh
 $ make && make install
 ```
-## Program static build  
+## Program static build
 
 Once you had your Qt build finished switch back to to cloned code directory make a build folder navigate to and run:
 ```sh
 $ cmake -DCMAKE_BUILD_TYPE=Release ..
 $ make
+```
+#### Disclaimer
+latest succesfull build tested on commit c7da5c5 and Qt static version 6.3.0
+```sh
+git checkout c7da5c5
 ```
 
 ### Acknowledgement
