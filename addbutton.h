@@ -7,9 +7,11 @@
 #include <QDebug>
 #include <QHBoxLayout>
 
-/* this class provides 'add' and 'edit' Qpushbuttons
- * to interact with their Qlineedit of each read user input.*/
-
+/**
+ * @brief This class provides simple pushbutton as main ADD button.
+ * 
+ * The system's Return key also set to work similar with this button.
+ */
 
 
 class addButton: public QWidget

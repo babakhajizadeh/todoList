@@ -1,13 +1,33 @@
 #include "addbutton.h"
 
+/**
+ * @brief Construct a new add Button::add Button object.
+ * 
+ * Also notifies it's success by a message to stderr.
+ */
 addButton::addButton()
 {
     qInfo() << "addButton object constructed";
 }
+
+/**
+ * @brief Destroy the add Button::add Button object
+ * 
+ * Also notifies it's success by a message to stderr.
+ * 
+ */
 addButton::~addButton()
 {
     qInfo() << "addButton object destructed";
 }
+
+/**
+ * @brief This init method construct a push button and sets it layout and manages signals.
+ * 
+ * This is a simple init method does nothing more rather than some self-explanatory
+   initilization
+ * 
+ */
 
 void addButton::init()
 {

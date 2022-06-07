@@ -1,5 +1,15 @@
 #include "mainwidget.h"
 
+/**
+ * @brief Mainwidget class consructor has major role in creating program's widgets.
+ * This class takes responsiblity of creating and initilization of each child via calling respective constructor 
+ * and init methods of them by pointers to children class objects and setting up this class as their parrents 
+ * in order to have Qt way of memory management .
+ * This constructor also sets up connections of children classes slot and signals 
+ * as needed for proper functionality of them. and as well as layouts for correct visualization of children widgets
+ * on the main widget UI. It creats sobjects of children e.g. addButton, ChatLabel, Mainchatbox and \ref serialize 
+ */
+
 Widget::Widget(QWidget *parent) : QWidget(parent)
 {
     setFixedWidth(480);
@@ -70,11 +80,26 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
 }
 
 
-
+/**
+ * @brief Destroy the Widget:: Widget object
+ * Under the hood it has role of calling destrutors of all children widgets in class hierarchy
+ */
 Widget::~Widget()
 {
 
 }
+
+/**
+ * @brief Controller method is partially an implement for Model View Controller design
+ * by taking care of children widgets.
+ * 
+ * It impose proper controlled logics in creating and modifying children classes as well as setting up their connections of signals and slots
+ * that are explained in details in each respecting class documentation. children classes
+ * including ChatLabel, Mainchatbox and \ref serialize getting managed via this method 
+ * it alos handles Edit and Delete requests signals for children classes in charge e.g.for class serialize 
+ * which has responsibility of creating binary data.
+ * 
+ */
 
 void Widget::controller(QByteArray *input, int keycounter)
 {
@@ -100,6 +125,12 @@ void Widget::controller(QByteArray *input, int keycounter)
     emit chatLabelObjectConstructed(m_label,keycounter);
 }
 
+/**
+ * @brief Plays initial role in deleting ChatLabels.
+ * 
+ * This method responds Delete button click incident on UI
+ * 
+ */
 void Widget::deleteLabel(ChatLabel* choice, int labelkey)
 {
     delete choice;
@@ -107,6 +138,12 @@ void Widget::deleteLabel(ChatLabel* choice, int labelkey)
     emit labelObjectDeleteRequest(labelkey); //signal for serializer class
 }
 
+/**
+ * @brief Plays initial role in editing ChatLabels.
+ * 
+ * This method responds Edit button click incident on UI
+ * 
+ */
 void Widget::editLabel(ChatLabel* choice, int labelkey)
 {
     emit labelObjectEditRequest(choice, labelkey); // signal to serializer
