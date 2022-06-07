@@ -12,8 +12,19 @@
 #include <QJsonObject>
 #include <QFile>
 
-/* this class creates top QtextLine
- * to read user input input .*/
+/**
+ * @brief This class is responsible in creating input text box and it's management,
+ * 
+ * It reads End User input from UI widget and has public member slots to intract with 
+ * with edit requests by Edit button provided by class ChatLabel via editRequestHandler() slot as well as 
+ * getText() slot which privides string value of inputed text It also notifies class  \ref serialize 
+ * via signal Mainchatbox::editready about edit accomplishment, so serializer class can proceed saving new changes
+ * This class as well informs main widget Widget::controller slot via signal Mainchatbox::textready()
+ * so the controller method of main widget reponds with creating new instance of class ChatLabel.
+ * Additionally this class also monitors whether Return key is pressed as the same way it monitors if addButton::addButtonClicked
+ * to know when text input must be considered accomplished.
+ * 
+ */
 
 
 
