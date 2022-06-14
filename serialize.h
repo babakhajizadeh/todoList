@@ -9,7 +9,7 @@
 #include <QMap>
 #include "chatlabel.h"
 #include <QFileInfo>
-#include <unistd.h>
+// #include <unistd.h>  //?! 
 
 /**
  * @brief This class provides class serializaton and deserialization of IO.   
