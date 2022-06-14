@@ -30,8 +30,8 @@ documentaion, accordingly I expect anyone who follow these instruction will find
 
 
 __Main build documentation available [here]()__  
-__Linux X11 build detailed documentation is available [here]()__  
-__Microsoft Windows detailed documentation is available [here]()__
+__Build for Linux X11 detailed documentation is available [here]()__  
+__Build for Microsoft Windows detailed documentation is available [here]()__
 
 #### Disclaimer
 latest succesfull build tested on commit c7da5c5 and Qt static version 6.3.0
