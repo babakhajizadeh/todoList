@@ -20,31 +20,19 @@ various concepts and technologies e.g. Data Serialization, Data Encoding and use
 QIODevice technology, Data structure like QVarient class and QjsonDocument are also invloved.  
 At end user,it writes edit and saves tasks into a visual Todo list.  
 ## Build  
-__X11 / Debian based distributions (Debian/Ubuntu/Mint)__  
-First it is recommended officially by Qt to install dependencies mentioned 
-in [here](https://doc.qt.io/qt-5/linux-requirements.html). Via standard package manager
-or Snap.   
-## Qt static build
-for static build it is required to have static build of qt from source. it's source package latest version available via Qt
-official repository [here](https://github.com/qt) 
-so I assume you have already download the source and are ready to build your Qt static version.  
-Navigate into source directory and start with configuring your build settings:  
+There are 2 build options covered in parallel documentations  
+the main build documentation will guid e you thriugh two detailed documentations on how to deploy
+and statically build Qt itself and the how to go through building this demo widget application statically 
+on both, __Microsoft Windows__ via microsoft MSVC compiler available at Visual Studio Build Toools 2022 and __Linux X11__ via GNU GCC compiler.  
 
-```sh
-$./configure -static -prefix ~/desired/path/to/static/build
-```
-once configuration succeed then run:  
+As it meant to, by static build there will be no more requirment for Qt and it's shared libraries being on the host machine, yet there might be third party dependencies neeed it doesn't guarantee whole 3rd party dependencies are fulfilled however those dependencies are addressed by Qt officiall 
+documentaion, accordingly I expect anyone who follow these instruction will find a way for a successfull build! :)  
 
-```sh
-$ make && make install
-```
-## Program static build
 
-Once you had your Qt build finished switch back to to cloned code directory make a build folder navigate to and run:
-```sh
-$ cmake -DCMAKE_BUILD_TYPE=Release ..
-$ make
-```
+__Main build documentation available [here]()__  
+__Linux X11 build detailed documentation is available [here]()__  
+__Microsoft Windows detailed documentation is available [here]()__
+
 #### Disclaimer
 latest succesfull build tested on commit c7da5c5 and Qt static version 6.3.0
 ```sh
