@@ -81,6 +81,8 @@ void Mainchatbox::getText()
             m_serializedFile->open(QIODevice::ReadOnly);
             m_streamIn.setVersion(QDataStream::Qt_4_0);
             m_streamIn.setDevice(m_serializedFile);
+            QDataStream &operator<< (QDataStream & m_streamIn, const QJsonObject & m_jsonobject);
+            QDataStream &operator>> (QDataStream & m_streamIn, QJsonObject & m_jsonobject);
             m_streamIn >> m_jsonobject;
             m_serializedFile->close(); //flush every thing to file
             foreach(const QString& olderkeys, m_jsonobject.keys())
