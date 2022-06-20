@@ -1,25 +1,25 @@
 # Build on Linux  
 
 ## Qt for Linux build  
-In order to ensure a succesfull build on Linux machines we need some Prerequisites & Dependencies,  
-First make sure you have available __GGC compiler__ buy installing _build essential_.  
+In order to ensure a succesfull build on Linux machines we need some prerequisites & dependencies,  
+First make sure you have available __GGC compiler__ by installing _build essential_.  
 ```sh
 $ sudo apt install build-essential
 ```
-Then you have to make sure installed Qt's official build requirments [here](https://doc.qt.io/qt-6/linux-requirements.html)
+Then you have to make sure installed Qt's official build dependencies [here](https://doc.qt.io/qt-6/linux-requirements.html)
 ### All desktop build tools  
-It is neccesary to ensure you have these tools below already installed on your machine.  
-Most of Linux systems provide them implicitly installed.  
+It is as well neccesary to ensure you have these tools below already installed on your machine.  
+Most of Linux systems provide them implicitly.  
 
 * Git
 * Perl
 * Python
 
-for a build we need first get our source code.  
+For a build we need first get our source code.  
 ## Cloning Qt source  
 In this demonstration app I will sue only _qtbase_ sumbodule in case you need you can compile whole Qt source or whatever you need to.
 And I download it from official Qt repository on Github
-__Start by cloning into Qt's supermodule_
+__Start by cloning into Qt's supermodule__
 ```sh
 $ git clone https://github.com/qt/qt5
  ```
@@ -44,7 +44,7 @@ $ make && make install
 ```
 ## Program's static build
 First you need to provide address of your own Qt's static build directory in __CMakeLists.txt__ at __CMAKE_PREFIX_PATH__ variable.  
-So by now I Assume you have already finished tasks above, And you have swiched to our programs root directory;
+So by now I assume you have already finished tasks above, And you have swiched to the programs root directory;
  
 ```sh  
 $ mkdir build
@@ -53,7 +53,7 @@ $ cmake -DCMAKE_BUILD_TYPE=Release ..
 $ make
 ```
 ### Cleaning
-To get your Qt directory clean and back to to first stage after a try,
+To get your Qt directory clean and back to to first stage after a build try run:
 ```sh
 $ git submodule foreach --recursive "git clean -dfx" && git clean -dfx
 ```

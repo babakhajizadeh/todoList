@@ -2,22 +2,22 @@
 
 ## Setting up Prerequisites:
 For a succesfull static build of Qt on Microsoft Windows on MSVC (Microsoft Visual C++) compiler a safe approach is having 
-_Build Tools for Visual Studio 2022_ Installed, where available at [here](https://visualstudio.microsoft.com/downloads/?q=build+tools) and It automatically setup tools needed for C++ Desktop Development. however standard Visual Studio setip will also cover what is needed.  
-You need to verify you have alread have installed tools below:
+_Build Tools for Visual Studio 2022_ Installed, where it is available at [here](https://visualstudio.microsoft.com/downloads/?q=build+tools) and It automatically setups tools needed for C++ Desktop Development.However standard Visual Studio setup will also cover what is needed.  
+You need to verify you have already installed tools below:
 
 #### Prerequisites:
 * __Perl__ from https://strawberryperl.com/
-* __Python__ (>v.3)http://www.python.org/download/
+* __Python__ (>v.3) http://www.python.org/download/
 * __Cmake__ (>v3.2) (available within MSVC BuildTools)
 
 ## Cloning Qt Source  
-In this demonstration app I will only get _qtbase_ submodule in case you need you can compile whole Qt source or include whatever you need to.
-And I download it from official Qt repository on Github
+In this demonstration app I will only get _qtbase_ submodule in case you need you can compile whole Qt source or include whatever you need to.  
+I download it from official Qt repository on Github
 __Start by cloning into Qt's supermodule_
 ```sh
 $ git clone https://github.com/qt/qt5
 ```
- Now check out latest Qt5 branch 5.15  
+ Now checkout latest Qt5 branch 5.15  
  ```sh
 $ git checkout 5.15
 ```
@@ -26,28 +26,29 @@ $ git checkout 5.15
 $ perl init-repository --module-subset=qtbase
 ```
 ## Configuring and Building Qt source
-Once you done initializaton of submodule(s) you need, you are ready "for" configuration:  
-Now run (on 64bit Windows)  
+Once you done initializaton of submodule(s) you need, you are ready for configuration:    
+__Now run (on 64bit Windows)__  
 ```sh X64 Native Tools Command Prompt for VS 2022 ```  
-and on X86 Windows
+__Or on X86 Windows__
 ```sh X86 Native Tools Command Prompt for VS 2022 ``` 
 To have Visual Studio build environment initialized.    
-then you need to set up requaired environment variables;  
+Then you need to set up requaired environment variables;  
 
 ```sh
 set QTDIR=C:\qt5\qtbase 
 set PATH=%QTDIR%\bin;%PATH%
 set INSTALL_PATH=%QTDIR%\static-build"
 ```
-QTDIR refers to where you have cloned Qt's source and it is recommended to setup on root folder of drive C:    
-Remember all _bin_ directories of every Qt submodule needs be added to PATH and as well as well as all Prerequisites mentioned above otherwise you might encounter build errors. check their setup by running:
+QTDIR refers to where you have cloned Qt's source and It is recommended to setup on root folder of drive C:      
+__Remember all _bin_ directories of every Qt submodule needs be added to PATH and as well as well as all Prerequisites mentioned above otherwise you might encounter build errors.__  
+Check their setup by running:  
 ```sh
 where perl.exe
 where python.exe
 where cmake.exe
 where ninja.exe
 ```
-Once you ensured everything is ready run Configure command to set up your build:
+Once you ensured everything is ready run __Configure__ command to set up your build:
 
 ```sh
 configure.bat -prefix "C:\prefred\instaled\path" -debug-and-release ^
@@ -63,7 +64,7 @@ configure.bat -prefix "C:\prefred\instaled\path" -debug-and-release ^
 -nomake tests ^
 -platform win32-msvc
 ```
-the _opengl_ option as it is not needed for widget apps however if your testing your build on QML QtQuick application you will need to include _-opengl desktop_ or other options  
+The _opengl_ option as it is not needed for widget apps however if your testing your build on QML QtQuick application you will need to include _-opengl desktop_ or other options  
 the _-platfrom_ option specifies the compiler we prefer to use.    
 
 ## Installing Qt
