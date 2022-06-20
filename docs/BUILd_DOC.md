@@ -14,9 +14,9 @@ i will provide detailed descriptions on those tools and how to get them on your 
 
 ### Linux X11 build instruction
 Follow our detailed instruction on how to build Qt source and our program statically
-on __Linux X11__ machines specificly specifically tested on latest Uuntu LTS 22.04 [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/LINUX_DOC%20.md)
+on __Microsoft Windows__ machines specificly specifically tested on latest Uuntu LTS 22.04 [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/LINUX_DOC.md)
 
 ### Microsoft Windows build instruction
 we will use __Microsoft windows 10__ for our build and __Native VS2022 Build t
 Follow our detailed instruction on how to build Qt source and our program statically
-on Linux X11 machines [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/WIN_DOC%20.md)
+on Linux X11 machines [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/WIN_DOC.md)
