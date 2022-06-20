@@ -27,9 +27,9 @@ and As it meant to, by static build there will be no more requirment for Qt and 
 documentaion which you will find refrences to them here, accordingly I expect anyone who follow these instruction will find a way to a successfull build! :)  
 
 
-__Main build documentation available [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/BUILd_DOC.md)__  
+__Main build documentation available__ [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/BUILd_DOC.md)
 Linux X11 build documentation [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/LINUX_DOC.md)  
-Microsoft Windows documentation [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/WIN_DOC.md)__  
+Microsoft Windows documentation [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/WIN_DOC.md) 
 Cmake documentation here [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/CMAKE_DOC.md)  
 
 #### Disclaimer

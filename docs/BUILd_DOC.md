@@ -17,7 +17,7 @@ Follow our detailed instruction on how to build Qt source and our program static
 on __Microsoft Windows__ machines specificly specifically tested on latest Uuntu LTS 22.04 [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/LINUX_DOC.md)
 
 ## Microsoft Windows build instruction
-we will use __Microsoft windows 10__ for our build and __Native VS2022 Build t
+we will use __Microsoft windows 10__ for our build and __Native VS2022 BuildTools. 
 Follow our detailed instruction on how to build Qt source and our program statically
 on Linux X11 machines [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/WIN_DOC.md)
 
