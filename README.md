@@ -20,26 +20,25 @@ various concepts and technologies e.g. Data Serialization, Data Encoding and use
 QIODevice technology, Data structure like QVarient class and QjsonDocument are also invloved.  
 At end user,it writes edit and saves tasks into a visual Todo list.  
 ## Build  
-There are 2 build options covered in parallel documentations 
-the main build documentation will guid e you thriugh two detailed documentations on how to deploy
-and statically build Qt itself and the how to go through building this demo widget application statically 
-on both, __Microsoft Windows__ via microsoft MSVC compiler available at Visual Studio Build Toools 2022 and __Linux X11__ via GNU GCC compiler.  
+There are 2 build approaches for __Linux X11__ and __Microsoft Windows__ has been covered in 2 parallel documentations in details.  
 
-As it meant to, by static build there will be no more requirment for Qt and it's shared libraries being on the host machine, yet there might be third party dependencies neeed it doesn't guarantee whole 3rd party dependencies are fulfilled however those dependencies are addressed by Qt officiall 
-documentaion, accordingly I expect anyone who follow these instruction will find a way for a successfull build! :)  
+the main build documentation will guide you through those two instructions on how to build Qt statically and how to link our widget application itself statically against Qt libraries and as well as C++ runtime Libraries (so eventually there will be no dependency on Microsoft Visual C++ Redistributable on Windows).
+and As it meant to, by static build there will be no more requirment for Qt and it's shared libraries being redistrebuted yet on Loinux there might be third party dependencies neeed despite those depndencies might not be pre-installed on major Linux distributions, however are addressed by Qt officiall 
+documentaion which you will find refrences to them here, accordingly I expect anyone who follow these instruction will find a way to a successfull build! :)  
 
 
-__Main build documentation available [here]()__  
-__Build for Linux X11 detailed documentation is available [here]()__  
-__Build for Microsoft Windows detailed documentation is available [here]()__
+__Main build documentation available [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/BUILd_DOC.md)__  
+Linux X11 build documentation [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/LINUX_DOC.md)  
+Microsoft Windows documentation [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/WIN_DOC.md)__  
+Cmake documentation here [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/CMAKE_DOC.md)  
 
 #### Disclaimer
-latest succesfull build tested on commit c7da5c5 and Qt static version 6.3.0
+latest succesfull build tested on commit [9039ca5](https://github.com/qt/qt5/commit/9039ca53a3dac14415cea435083bb96f0acdb3d8) of Qt version 5.15 
 ```sh
-git checkout c7da5c5
+git checkout 9039ca53a3dac14415cea435083bb96f0acdb3d8
 ```
 
-### Acknowledgement
-This project has been developed under Mentorship of __Amirreza Ashouri. [AMP999](https://github.com/AMP999)__ whom my special thanks goes to.
+## Acknowledgement
+This project has been developed under Mentorship of __Amirreza Ashouri. [AMP999](https://github.com/AMP999)__ whom my special thanks goes with.
 
 

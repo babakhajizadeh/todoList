@@ -1,6 +1,8 @@
-## Build on Microsoft Windows Build   
+# Cmake Instruction  
 
- not completed yet
+ 
+
+ not completed yet...
 
 
 
@@ -11,7 +13,6 @@ Latest succesfull build tested on commit [9039ca5](https://github.com/qt/qt5/com
 __Main build documentation available [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/BUILd_DOC.md)__  
 __Build for Linux X11 detailed documentation is available [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/LINUX_DOC.md)__  
 __Build for Microsoft Windows detailed documentation is available [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/WIN_DOC.md)__
-__Cmake documentation here__ [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/CMAKE_DOC.md)  
 
 ### Acknowledgement
 Handling of this documentation is supervised by Mentor __Amirreza Ashouri. [AMP999](https://github.com/AMP999)__ 

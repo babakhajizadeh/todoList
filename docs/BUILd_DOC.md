@@ -12,11 +12,17 @@ on either platform we will get our source codes via Git.
 on both Windows and Linux there will be need some tools and compilers to have our source get built.  
 i will provide detailed descriptions on those tools and how to get them on your system in each platform's specific build documentations.  
 
-### Linux X11 build instruction
+## Linux X11 build instruction
 Follow our detailed instruction on how to build Qt source and our program statically
 on __Microsoft Windows__ machines specificly specifically tested on latest Uuntu LTS 22.04 [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/LINUX_DOC.md)
 
-### Microsoft Windows build instruction
+## Microsoft Windows build instruction
 we will use __Microsoft windows 10__ for our build and __Native VS2022 Build t
 Follow our detailed instruction on how to build Qt source and our program statically
 on Linux X11 machines [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/WIN_DOC.md)
+
+## Cmake
+__Also Cross platform Cmake setting instruction is available__ [here] [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/CMAKE_DOC.md)  
+
+### Acknowledgement
+Handling of this documentation is supervised by Mentor __Amirreza Ashouri. [AMP999](https://github.com/AMP999)__ 
