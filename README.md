@@ -20,38 +20,29 @@ various concepts and technologies e.g. Data Serialization, Data Encoding and use
 QIODevice technology, Data structure like QVarient class and QjsonDocument are also invloved.  
 At end user,it writes edit and saves tasks into a visual Todo list.  
 ## Build  
-__X11 / Debian based distributions (Debian/Ubuntu/Mint)__  
-First it is recommended officially by Qt to install dependencies mentioned 
-in [here](https://doc.qt.io/qt-5/linux-requirements.html). Via standard package manager
-or Snap.   
-## Qt static build
-for static build it is required to have static build of qt from source. it's source package latest version available via Qt
-official repository [here](https://github.com/qt) 
-so I assume you have already download the source and are ready to build your Qt static version.  
-Navigate into source directory and start with configuring your build settings:  
+There are 2 build approaches for __Linux X11__ and __Microsoft Windows__ has been covered in 2 parallel documentations in details.  
 
-```sh
-$./configure -static -prefix ~/desired/path/to/static/build
-```
-once configuration succeed then run:  
+the main build documentation will guide you through those two instructions on how to build Qt statically and how to link our widget application itself statically against Qt libraries and as well as C++ runtime Libraries (so eventually there will be no dependency on Microsoft Visual C++ Redistributable on Windows).
+and As it meant to, by static build there will be no more requirment for Qt and it's shared libraries being redistrebuted yet on Loinux there might be third party dependencies neeed despite those depndencies might not be pre-installed on major Linux distributions, however are addressed by Qt officiall 
+documentaion which you will find refrences to them here, accordingly I expect anyone who follow these instruction will find a way to a successfull build! :)  
 
-```sh
-$ make && make install
-```
-## Program static build
 
-Once you had your Qt build finished switch back to to cloned code directory make a build folder navigate to and run:
-```sh
-$ cmake -DCMAKE_BUILD_TYPE=Release ..
-$ make
-```
+__Main build documentation available__ [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/BUILd_DOC.md)  
+You shoud start your build journy out of here above.
+
+### Index
+__Main build documentation available [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/BUILd_DOC.md)__  
+__Build for Linux X11 detailed documentation is available [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/LINUX_DOC.md)__  
+__Build for Microsoft Windows detailed documentation is available [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/WIN_DOC.md)__  
+__Cmake documentation here__ [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/CMAKE_DOC.md)  
+
 #### Disclaimer
-latest succesfull build tested on commit c7da5c5 and Qt static version 6.3.0
+latest succesfull build tested on commit [9039ca5](https://github.com/qt/qt5/commit/9039ca53a3dac14415cea435083bb96f0acdb3d8) of Qt version 5.15 
 ```sh
-git checkout c7da5c5
+git checkout 9039ca53a3dac14415cea435083bb96f0acdb3d8
 ```
 
-### Acknowledgement
-This project has been developed under Mentorship of __Amirreza Ashouri. [AMP999](https://github.com/AMP999)__ whom my special thanks goes to.
+## Acknowledgement
+This project has been developed under Mentorship of __Amirreza Ashouri. [AMP999](https://github.com/AMP999)__ whom my special thanks goes with.
 
 

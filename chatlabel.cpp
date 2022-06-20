@@ -96,7 +96,7 @@ void ChatLabel::init(QByteArray* input, int labelkey)
 
     read = new QByteArray;
     m_buffer.setBuffer(read);
-    m_buffer.open(QIODeviceBase::WriteOnly);
+    m_buffer.open(QIODevice::WriteOnly);
     m_buffer.write(*input);
     m_buffer.close();
     qInfo() << "label slot connected.";

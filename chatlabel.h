@@ -7,7 +7,7 @@
 #include <QBuffer> //to work with QIODEvice interface for Qbytearrays
 #include <QVBoxLayout>
 #include <QList>
-
+#include <QDebug>
 /**
  * @brief This class has major responsiblity in creating todo tasks as known as Chat Labels.
  * 
