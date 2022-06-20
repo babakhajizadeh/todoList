@@ -63,9 +63,9 @@ Latest succesfull build tested on commit [9039ca5](https://github.com/qt/qt5/com
 
 
 ### Index
-__Main build documentation available [here]()__  
-__Build for Linux X11 detailed documentation is available [here]()__  
-__Build for Microsoft Windows detailed documentation is available [here]()__
+__Main build documentation available [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/BUILd_DOC.md)__  
+__Build for Linux X11 detailed documentation is available [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/LINUX_DOC%20.md)__  
+__Build for Microsoft Windows detailed documentation is available [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/WIN_DOC%20.md)__
 
 ### Acknowledgement
 Handling of this documentation is supervised by Mentor __Amirreza Ashouri. [AMP999](https://github.com/AMP999)__ 

@@ -8,15 +8,15 @@ latest LTS version for Qt5 is 5.15 i have tested on on commit [9039ca5](https://
 Thre are several way to get your Qt's source code oficial documentation used all them concurrently yet its is recommended to get your source via git repositories and or via Qt's archive Tarball on linux and or Zip on Windows;
 on either platform we will get our source codes via Git.
 
-##Qt's build prerequisties  
+## Qt's build prerequisties  
 on both Windows and Linux there will be need some tools and compilers to have our source get built.  
 i will provide detailed descriptions on those tools and how to get them on your system in each platform's specific build documentations.  
 
 ### Linux X11 build instruction
 Follow our detailed instruction on how to build Qt source and our program statically
-on __Linux X11__ machines specificly specifically tested on latest Uuntu LTS 22.04 [here]()
+on __Linux X11__ machines specificly specifically tested on latest Uuntu LTS 22.04 [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/LINUX_DOC%20.md)
 
 ### Microsoft Windows build instruction
 we will use __Microsoft windows 10__ for our build and __Native VS2022 Build t
 Follow our detailed instruction on how to build Qt source and our program statically
-on Linux X11 machines [here]()
+on Linux X11 machines [here](https://github.com/babakhajizadeh/todoList/blob/documentation/docs/WIN_DOC%20.md)
