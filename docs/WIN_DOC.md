@@ -50,9 +50,21 @@ where ninja.exe
 Once you ensured everything is ready run Configure command to set up your build:
 
 ```sh
-configure.bat -release -prefix "C:\prefred\instaled\path" -opensource -platform win32-msvc -no-opengl -static -nomake examples -
+configure.bat -prefix "C:\prefred\instaled\path" -debug-and-release ^
+-force-debug-info ^
+-opensource ^
+-confirm-license ^
+-static ^
+-static-runtime ^
+-opengl desktop ^
+-mp ^
+-no-openssl ^
+-nomake examples ^
+-nomake tests ^
+-platform win32-msvc
 ```
-I have used _-no-opengl_ option as it is not needed for widget apps however if your testing your build on QML QtQuick application you will need to include _-opengl desktop_ or other options 
+the _opengl_ option as it is not needed for widget apps however if your testing your build on QML QtQuick application you will need to include _-opengl desktop_ or other options  
+the _-platfrom_ option specifies the compiler we prefer to use.    
 
 ## Installing Qt
 Finally you can install Qt: 
