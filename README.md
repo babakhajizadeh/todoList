@@ -20,7 +20,7 @@ various concepts and technologies e.g. Data Serialization, Data Encoding and use
 QIODevice technology, Data structure like QVarient class and QjsonDocument are also invloved.  
 At end user,it writes edit and saves tasks into a visual Todo list.  
 ## Build  
-There are 2 build options covered in parallel documentations  
+There are 2 build options covered in parallel documentations 
 the main build documentation will guid e you thriugh two detailed documentations on how to deploy
 and statically build Qt itself and the how to go through building this demo widget application statically 
 on both, __Microsoft Windows__ via microsoft MSVC compiler available at Visual Studio Build Toools 2022 and __Linux X11__ via GNU GCC compiler.  
